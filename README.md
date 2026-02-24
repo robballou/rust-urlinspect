@@ -17,6 +17,8 @@ urlinspect
 
 ## Example
 
+Output information about this URL _and_ the URL contained in the query parameters:
+
 ```shell
 urlinspect https://example.com/\?redirect\=https%3A%2F%2Fexample.com%3Fpage%3Dsomething
 ```
@@ -32,4 +34,10 @@ https://example.com/?redirect=https%3A%2F%2Fexample.com%3Fpage%3…
 		- host: example.com
 		- query:
 			page: something
+```
+
+## Build
+
+```shell
+cargo build
 ```

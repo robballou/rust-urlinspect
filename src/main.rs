@@ -1,4 +1,4 @@
-use std::{ env, io::{ self, Write } };
+use std::{ env, io::{ self, Write }, process };
 use url::{ Url };
 
 fn main() {
@@ -14,14 +14,20 @@ fn main() {
         let url_result = inspect_url(input);
         match url_result {
             Ok(url) => output_url(url, 0),
-            Err(_err) => panic!("Invalid URL"),
+            Err(_err) => {
+                eprintln!("Invalid URL");
+                process::exit(1)
+            },
         }
     } else {
         for possible_url in args[1..].to_vec() {
             let url_result = inspect_url(possible_url);
             match url_result {
                 Ok(url) => output_url(url, 0),
-                Err(_err) => panic!("Invalid URL"),
+                Err(_err) => {
+                    eprintln!("Invalid URL");
+                    process::exit(1)
+                },
             }
         }
     }
