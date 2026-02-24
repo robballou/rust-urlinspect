@@ -1,0 +1,8 @@
+[package]
+name = "urlinspect"
+version = "0.1.0"
+edition = "2024"
+description = "Simple CLI tool to output and decode URLs"
+
+[dependencies]
+url = "2.5.8"
