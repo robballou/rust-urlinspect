@@ -24,16 +24,22 @@ urlinspect https://example.com/\?redirect\=https%3A%2F%2Fexample.com%3Fpage%3Dso
 ```
 
 ```
-https://example.com/?redirect=https%3A%2F%2Fexample.com%3Fpage%3…
-- scheme: https
-- host: example.com
-- query:
-	redirect: https://example.com?page=something
-		https://example.com/?page=something
-		- scheme: https
-		- host: example.com
-		- query:
-			page: something
+url: https://example.com/?redirect=https%3A%2F%2Fexample.com%3Fpage%3Dsomething
+scheme: https
+host: example.com
+fragment: null
+query:
+- key: redirect
+  value: https://example.com?page=something
+  url_details:
+    url: https://example.com/?page=something
+    scheme: https
+    host: example.com
+    fragment: null
+    query:
+    - key: page
+      value: something
+      url_details: null
 ```
 
 ## Build

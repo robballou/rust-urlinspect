@@ -6,3 +6,5 @@ description = "Simple CLI tool to output and decode URLs"
 
 [dependencies]
 url = "2.5.8"
+serde = {version = "1.0", features = ["derive"]}
+serde_yml = "0.0.12"
