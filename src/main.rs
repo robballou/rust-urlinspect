@@ -10,32 +10,24 @@ fn main() {
         print!("URL: ");
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut input).expect("Invalid URL");
-
-        // try to output what they wrote
-        let url_result = inspect_url(input);
-        if let Ok(url) = url_result {
-            let encoded = encode_url(url);
-            match encoded {
-                Ok(url_as_string) => println!("{}", url_as_string),
-                Err(_err) => {
-                    eprintln!("Invalid URL");
-                    process::exit(1)
-                },
-            }
-        }
+        output_possible_url(input);
     } else {
         for possible_url in args[1..].to_vec() {
-            let url_result = inspect_url(possible_url);
-            if let Ok(url) = url_result {
-               let encoded = encode_url(url);
-                match encoded {
-                    Ok(url_as_string) => println!("{}", url_as_string),
-                    Err(_err) => {
-                        eprintln!("Invalid URL");
-                        process::exit(1)
-                    },
-                }
-            }
+            output_possible_url(possible_url);
+        }
+    }
+}
+
+fn output_possible_url(possible_url: String) {
+    let url_result = inspect_url(possible_url);
+    if let Ok(url) = url_result {
+        let encoded = encode_url(url);
+        match encoded {
+            Ok(url_as_string) => println!("{}", url_as_string),
+            Err(_err) => {
+                eprintln!("Invalid URL");
+                process::exit(1)
+            },
         }
     }
 }
